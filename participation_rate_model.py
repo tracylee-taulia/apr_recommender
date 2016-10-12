@@ -57,7 +57,7 @@ def data_filtering(data):
     INPUT: dataframe
     OUTPUT: dataframe
 
-    
+    Filtering out relations where EPs have not been offered and account type is DPT.
     '''
 
     data = data[(data['EP_Offered']==1)&(data['DPT EP Spend Taken One Year']==0)]
@@ -74,12 +74,13 @@ def data_filtering(data):
          'Participation_Rate']]
     return data
 
+
 def grid_search():
     '''
-    INPUT: string
-    OUTPUT: int
+    INPUT:
+    OUTPUT: estimator
 
-    Reads in the net terms of the supplier and parses for the number of days.
+    Runs a grid search for a GBM and returns the best one.
     '''
 
     gd_grid = {'learning_rate': [0.1, 0.05, 0.02, 0.01],
