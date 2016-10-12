@@ -1,0 +1,9 @@
+<!doctype html>
+<title>Supplier Data</title>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/tables.css') }}">
+<div class=page>
+  {% for table in tables %}
+    <h2>{{titles[loop.index]}}</h2> <a href="/export/{{filename}}">Export as csv</a>
+    {{ table|safe }}
+  {% endfor %}
+</div>
